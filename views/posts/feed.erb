@@ -1,0 +1,19 @@
+<html>
+<head>
+	<title>Sloth Central News Feed</title>
+</head>
+<body>
+	<h1>News Feed</h1>
+	<ul>
+		<% posts.each do |post| %>
+					<h3><em><%= post.title %></em></h3>
+					<p><%= post.content %></p>
+					<p>Tag(s): <p><%= post.tag %></p>
+					<!-- Add link to tag page when ready -->
+					<p><em>Created: <%= post.created_at %></em> | <em>Authored by: <%= post.author_id %></em></p>
+				<!-- How do I get the author byline here? -->
+					<p><a href="/posts/<%= post.id %>">Permalink</a></p>
+		<% end %>
+	</ul>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<html>
+<head>
+	<title>Sloth Central: Create a New Post</title>
+</head>
+<body>
+	<h1>Create a New Post</h1>
+	<form action="/posts" method="POST">
+			Title: <input type="text" name="title" size="62" placeholder="Add a title">
+			<br>
+			Body:<br>
+			<textarea name="content" cols="50" rows="3" placeholder="Write something..."></textarea>
+			<br>
+			Image URL: <input type="text" name="image" size="53" placeholder="Add an image">
+			<br>
+			Tag(s): <input type="text" name="tag" size="30" placeholder="Separate tags with commas">
+			<br>
+			Author: 
+				<select name="author_id">
+					<option selected="selected">Select an author</option>
+					<% authors.each do |author| %>
+					<option value="<%= author["id"] %>"><%= author["name"] %></option>
+					<% end %>
+				</select>
+				<br>
+				<button>Post</button>
+		</form>
+
+	<ul>
+		<li><a href="/authors/new">Add an Author</a></li>
+		<li><a href="/posts/new">Create New Post</a></li>
+		<li><a href="/authors">All Authors</a></li>
+		<li><a href="/posts">All Posts</a></li>
+
+	</ul>
+
+</body>
+</html>

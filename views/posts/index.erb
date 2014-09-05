@@ -1,0 +1,27 @@
+<html>
+<head>
+	<title>All Posts</title>
+</head>
+<body>
+	<h1>All Posts</h1>
+	<ul>
+		<% posts.each do |post| %>
+			<li>
+				<a href="/posts/<%= post.id %>">
+					<%= post.title %>
+				</a>
+			</li>
+
+			<form action="/<%= post.id %>/edit" method="GET">
+				<input type="hidden">
+				<button>Edit</button>
+			</form>
+
+			<form action="/<%= post.id %>" method="POST">
+				<input type="hidden" name="_method" value="DELETE">
+				<button>Delete</button>
+			</form>
+		<% end %>
+	</ul>
+</body>
+</html>

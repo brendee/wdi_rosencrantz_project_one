@@ -64,15 +64,12 @@ get("/posts") do
 	erb(:"posts/index", { locals: { posts: Post.all() } })
 end
 
+get("/feed") do
+	erb(:"posts/feed", { locals: { posts: Post.all(), authors: Author.all() } })
+	end
+
 get("/posts/new") do
-	erb(:"posts/new", { locals: { authors. Author.all() } })
-end
-
-get("/posts/:id") do
-	post = Post.find_by("id", params[:id])
-	author = post.author
-
-	erb(:"posts/show", { locals: { post: post, author: author } })
+	erb(:"posts/new", { locals: { authors: Author.all() } })
 end
 
 post("/posts") do
@@ -83,9 +80,38 @@ post("/posts") do
 		tag_id: params["tag_id"],
 		author_id: params["author_id"],
 		image_id: params["image_id"],
+		created_at: params["created_at"]
 	}
 
 	Post.create(post_hash)
 
 	erb(:"posts/index", { locals: { posts: Post.all() } })
+end
+
+get("/posts/:id") do
+	post = Post.find_by("id", params[:id])
+	author = post.author
+
+	erb(:"posts/show", { locals: { post: post, author: author } })
+end
+
+get("/posts/:id/edit") do
+	post = Post.find_by({id: params[:id]})
+	erb(:"posts/edit", { locals: { post: post, authors: Author.all() } })
+end
+
+put("/posts/:id/edit") do
+	posts_hash = {
+		title: params["title"],
+		content: params["content"],
+		tag_id: params["tag_id"],
+		author_id: params["author_id"],
+		image_id: params["image_id"],
+		created_at: params["created_at"]
+	}
+
+	post = Post.find_by({id: params[:id]})
+	post.destroy
+
+	redirect "/posts"
 end
