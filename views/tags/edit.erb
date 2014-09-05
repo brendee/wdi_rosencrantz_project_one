@@ -1,0 +1,18 @@
+<html>
+<head>
+	<title>Edit <%= tag.name %></title>
+</head>
+<body>
+	<form action="/tags/<%= tag.id %>" method="POST">
+		<input type="hidden" name="_method" value="PUT">
+		<input type="text" name="name" placeholder="Name" value="<%= tag.name %>" >
+		<button>Edit</button>
+	</form>
+
+	<form action="/tags/<%= tag.id %>" method="POST">
+		<input type="hidden" name="_method" value="DELETE">
+		<button>Delete</button>
+	</form>
+
+</body>
+</html>

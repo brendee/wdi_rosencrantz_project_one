@@ -1,21 +1,20 @@
 <html>
 <head>
-	<title><%= author.name %></title>
+	<title><%= tag.name %></title>
 </head>
 <body>
-	<h1><%= author.name %></h1>
+	<h1><%= tag.name %></h1>
 
-	<p>Posts:</p>
+	<p>Posts tagged "<%= tag.name %>":</p>
 
 	 <ol>
 		<% posts.each do |post| %>
 			<li>
 		  	<a href="/posts/<%=author.post.id %>">
-      	<%= author.post.title %>
+      	<%= tag.post.name %>
 			</li>
 		<% end %>
   </ol>
 
-<!-- Add subscribe link/icon -->
 </body>
 </html>

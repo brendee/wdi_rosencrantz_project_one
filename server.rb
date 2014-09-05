@@ -31,9 +31,9 @@ post("/authors") do
 		subscriber_id: params["subscriber_id"]
 	}
 
-	Author.create(author_hash)
+	Author.create(authors_hash)
 
-	erb(:"authors/index", { locals: { posts: Author.all() } })
+	erb(:"authors/index", { locals: { authors: Author.all() } })
 end
 
 get("/authors/:id/posts") do
@@ -46,7 +46,7 @@ get("/authors/:id/edit") do
 	erb(:"authors/edit", { locals: { author: author, posts: Post.all() } })
 end
 
-put("/authors/:id/edit") do
+put("/authors/:id/") do
 	authors_hash = {
 		name: params["name"],
 		post_id: params["post_id"],
@@ -54,6 +54,13 @@ put("/authors/:id/edit") do
 		subscriber_id: params["subscriber_id"]
 	}
 
+	author = Author.find_by({id: params[:id]})
+	author.update(authors_hash)
+
+	erb(:"authors/show", { locals: { author: author } })
+end	
+	
+delete ("/authors/:id/") do
 	author = Author.find_by({id: params[:id]})
 	author.destroy
 
@@ -74,7 +81,7 @@ end
 
 post("/posts") do
 
-	post_hash = {
+	posts_hash = {
 		title: params["title"],
 		content: params["content"],
 		tag_id: params["tag_id"],
@@ -83,16 +90,14 @@ post("/posts") do
 		created_at: params["created_at"]
 	}
 
-	Post.create(post_hash)
+	Post.create(posts_hash)
 
 	erb(:"posts/index", { locals: { posts: Post.all() } })
 end
 
 get("/posts/:id") do
 	post = Post.find_by("id", params[:id])
-	author = post.author
-
-	erb(:"posts/show", { locals: { post: post, author: author } })
+	erb(:"posts/show", { locals: { post: post } })
 end
 
 get("/posts/:id/edit") do
@@ -100,7 +105,7 @@ get("/posts/:id/edit") do
 	erb(:"posts/edit", { locals: { post: post, authors: Author.all() } })
 end
 
-put("/posts/:id/edit") do
+put("/posts/:id/") do
 	posts_hash = {
 		title: params["title"],
 		content: params["content"],
@@ -111,7 +116,35 @@ put("/posts/:id/edit") do
 	}
 
 	post = Post.find_by({id: params[:id]})
+	post.update(posts_hash)
+
+	erb(:"posts/show", { locals: { post: post } })
+end
+
+delete ("/posts/:id") do
+	post = Post.find_by({id: params[:id]})
 	post.destroy
 
 	redirect "/posts"
+end
+
+get("/tags") do
+	erb(:"tags/index", { locals: { tags: Tag.all() } })
+end
+
+post("/tags") do
+
+	tags_hash = {
+		name: params["name"]
+	}
+
+	Tag.create(tags_hash)
+
+	erb(:"tags/index", { locals: { tags: Tag.all() } })
+end
+
+get("/tags/:id/posts") do
+	tag = Tag.find_by("id", params[:id])
+
+	erb(:"tags/show", { locals: { tag: tag } })
 end

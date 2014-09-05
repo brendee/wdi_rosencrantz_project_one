@@ -1,0 +1,28 @@
+<html>
+<head>
+	<title>Sloth Central: All Tags</title>
+</head>
+<body>
+	<h1>All Tags</h1>
+	<ul>
+		<% tags.each do |tag| %>
+		<li>
+			<a href="/tags/<%= tag.id %>">
+				<%= tag.name %>
+			</a>
+		</li>
+
+			<form action="/<%= tag.id %>/edit" method="GET">
+				<input type="hidden">
+				<button>Edit</button>
+			</form>
+
+			<form action="/<%= tag.id %>" method="POST">
+				<input type="hidden" name="_method" value="DELETE">
+				<button>Delete</button>
+			</form>
+		<% end %>
+
+
+</body>
+</html>

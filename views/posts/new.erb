@@ -5,23 +5,26 @@
 <body>
 	<h1>Create a New Post</h1>
 	<form action="/posts" method="POST">
-			Title: <input type="text" name="title" size="62" placeholder="Add a title">
-			<br>
-			Body:<br>
+			<p>Title: <input type="text" name="title" size="62" placeholder="Add a title">
+			</p>
+			<p>Body:<br>
 			<textarea name="content" cols="50" rows="3" placeholder="Write something..."></textarea>
-			<br>
-			Image URL: <input type="text" name="image" size="53" placeholder="Add an image">
-			<br>
-			Tag(s): <input type="text" name="tag" size="30" placeholder="Separate tags with commas">
-			<br>
-			Author: 
+			</p>
+			<p>Image URL: <input type="text" name="image" size="53" placeholder="Add an image">
+			</p>
+			<p>Tag(s): <input type="text" name="tag" size="30" placeholder="Separate tags with commas">
+			</p>
+			<p>Author: 
 				<select name="author_id">
 					<option selected="selected">Select an author</option>
 					<% authors.each do |author| %>
 					<option value="<%= author["id"] %>"><%= author["name"] %></option>
 					<% end %>
 				</select>
-				<br>
+				</p>
+				<p>
+				Not listed? <a href="/authors/new">Add new author</a>
+				</p>
 				<button>Post</button>
 		</form>
 

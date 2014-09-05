@@ -1,0 +1,12 @@
+<html>
+<head>
+	<title><%= post.title %></title>
+</head>
+<body>
+<h1><em><%= post.title %></em></h1>
+<p><%= post.content %></p>
+<p><img src="<%= post["image_id"] %>">
+<p><em>Created: <%= post.created_at %></em> | <em>Authored by: <a href="/authors/<%= author["id"]%>"><%= author["name"] %></a></em></p>
+
+</body>
+</html>
