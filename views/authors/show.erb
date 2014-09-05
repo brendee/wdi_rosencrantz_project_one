@@ -1,0 +1,21 @@
+<html>
+<head>
+	<title><%= author.name %></title>
+</head>
+<body>
+	<h1><%= author.name %></h1>
+	<a href="/<%= author.id %>/edit">Edit Author Name</a>
+
+	<p>Posts:</p>
+
+	 <ol>
+		<% posts.each do |post| %>
+			<li>
+		  		<a href="/posts/<%= post["id"] %>">
+		  		<%= post["title"] %></a>
+			</li>
+		<% end %>
+  </ol>
+
+</body>
+</html>
