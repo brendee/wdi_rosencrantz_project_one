@@ -1,12 +1,14 @@
 <html>
 <head>
-	<title><%= post.title %></title>
+	<title>Sloth Central: <%= post.title %></title>
 </head>
 <body>
-<h1><em><%= post.title %></em></h1>
+<h1><%= post.title %></h1>
 <p><%= post.content %></p>
-<p><img src="<%= post["image_id"] %>">
-<p><em>Created: <%= post.created_at %></em> | <em>Authored by: <a href="/authors/<%= author["id"]%>"><%= author["name"] %></a></em></p>
+
+<p><em>Created: <%= post.created_at %></em> | 
+	<em>Authored by: <a href="/authors/<%= post["author_id"]%>/posts">
+		 <%= author["name"] %></a></em></p>
 
 </body>
 </html>

@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title>Sloth Central Authors</title>
+	<title>Sloth Central: Authors</title>
 </head>
 <body>
 	<h1>All Authors</h1>
@@ -8,22 +8,20 @@
 	<ul>
 		<% authors.each do |author| %>
 			<li>
-				<a href="/authors/<%= author.id %>">
+				<a href="/authors/<%= author.id %>/posts">
 					<%= author.name %>
 				</a>
 			</li>
 			
-			<li>
-				<form action="/<%= author.id %>/edit" method="GET">
+				<form action="/authors/<%= author.id %>/edit" method="GET">
 						<input type="hidden">
 						<button>Edit</button>
 				</form>
 				
-				<form action="/<%= author.id %>" method="POST">
+				<form action="/authors/<%= author.id %>" method="POST">
 					<input type="hidden" name="_method" value="DELETE">
 					<button>Delete</button>
 				</form>
-			</li>
 		<% end %>
 	</ul>
 

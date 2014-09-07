@@ -6,6 +6,7 @@ require_relative './lib/connection'
 require_relative './lib/author'
 require_relative './lib/post'
 require_relative './lib/tag'
+require_relative './lib/image'
 
 after do 
 	ActiveRecord::Base.connection.close
@@ -26,19 +27,20 @@ end
 post("/authors") do
 	authors_hash = {
 		name: params["name"],
-		post_id: params["post_id"],
-		tag_id: params["tag_id"],
 		subscriber_id: params["subscriber_id"]
 	}
 
-	Author.create(authors_hash)
+	all_authors = Author.create(authors_hash)
+	all_authors.save
 
 	erb(:"authors/index", { locals: { authors: Author.all() } })
 end
 
 get("/authors/:id/posts") do
 	author = Author.find_by({id: params[:id]})
-	erb(:"authors/show", { locals: { author: author } })
+	post = Post.where({author_id: params[:id]})
+
+	erb(:"authors/show", { locals: { author: author, post: post, posts: Post.all() } })
 end
 
 get("/authors/:id/edit") do
@@ -46,21 +48,19 @@ get("/authors/:id/edit") do
 	erb(:"authors/edit", { locals: { author: author, posts: Post.all() } })
 end
 
-put("/authors/:id/") do
+put("/authors/:id") do
 	authors_hash = {
 		name: params["name"],
-		post_id: params["post_id"],
-		tag_id: params["tag_id"],
 		subscriber_id: params["subscriber_id"]
 	}
 
 	author = Author.find_by({id: params[:id]})
 	author.update(authors_hash)
 
-	erb(:"authors/show", { locals: { author: author } })
+	erb(:"authors/show", { locals: { author: author, posts: Post.all() } })
 end	
 	
-delete ("/authors/:id/") do
+delete ("/authors/:id") do
 	author = Author.find_by({id: params[:id]})
 	author.destroy
 
@@ -86,18 +86,21 @@ post("/posts") do
 		content: params["content"],
 		tag_id: params["tag_id"],
 		author_id: params["author_id"],
-		image_id: params["image_id"],
+		image_url: params["image_url"],
 		created_at: params["created_at"]
 	}
 
-	Post.create(posts_hash)
+	all_posts = Post.create(posts_hash)
+	all_posts.save
 
 	erb(:"posts/index", { locals: { posts: Post.all() } })
 end
 
 get("/posts/:id") do
-	post = Post.find_by("id", params[:id])
-	erb(:"posts/show", { locals: { post: post } })
+	post = Post.find_by(id: params[:id])
+	author = Author.find_by({id: post.author_id})
+
+	erb(:"posts/show", { locals: { post: post, author: author, authors: Author.all() } })
 end
 
 get("/posts/:id/edit") do
@@ -105,20 +108,20 @@ get("/posts/:id/edit") do
 	erb(:"posts/edit", { locals: { post: post, authors: Author.all() } })
 end
 
-put("/posts/:id/") do
+put("/posts/:id") do
 	posts_hash = {
 		title: params["title"],
 		content: params["content"],
 		tag_id: params["tag_id"],
 		author_id: params["author_id"],
-		image_id: params["image_id"],
+		image_url: params["image_url"],
 		created_at: params["created_at"]
 	}
 
 	post = Post.find_by({id: params[:id]})
 	post.update(posts_hash)
 
-	erb(:"posts/show", { locals: { post: post } })
+	erb(:"posts/show", { locals: { post: post, authors: Author.all() } })
 end
 
 delete ("/posts/:id") do

@@ -1,15 +1,15 @@
 <html>
 <head>
-	<title>Edit <%= post.name %></title>
+	<title>Edit <%= post.title %></title>
 </head>
 <body>
 	<form action="/posts/<%= post.id %>" method="POST">
 		<input type="hidden" name="_method" value="PUT">
-		<input type="text" name="title" placeholder="Title" value="<%= post.content %>">
-		<input type="text" name="image" placholder="Image" value="post.image %>">
+		<input type="text" name="title" placeholder="Title" value="<%= post.title %>">
+		<input type="text" name="title" placeholder="Content" value="<%= post.content %>">
 		<select name="author_id">
 			<% authors.each do |author| %>
-			<option value="<%= author.id %>" <%= "selected" if post.author.id == post.id%> ><%= author.name %></option>
+			<option value="<%= author.id %>" <%= author.name %></option>
 			<% end %>
 		</select>
 		<button>Submit</button>
@@ -17,7 +17,7 @@
 
 	<form action="/posts/<%= post.id %>" method="POST">
 		<input type="hidden" name="_method" value="DELETE">
-		<button>Delete Character</button>
+		<button>Delete</button>
 	</form>
 </body>
 </html>

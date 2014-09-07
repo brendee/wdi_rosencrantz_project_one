@@ -12,12 +12,12 @@
 				</a>
 			</li>
 
-			<form action="/<%= post.id %>/edit" method="GET">
+			<form action="/posts/<%= post.id %>/edit" method="GET">
 				<input type="hidden">
 				<button>Edit</button>
 			</form>
 
-			<form action="/<%= post.id %>" method="POST">
+			<form action="/posts/<%= post.id %>" method="POST">
 				<input type="hidden" name="_method" value="DELETE">
 				<button>Delete</button>
 			</form>
