@@ -1,19 +1,12 @@
 <html>
 <head>
-	<title><%= tag.name %></title>
+	<title>Sloth Central: Post tagged <%= tag.tag %></title>
 </head>
 <body>
-	<h1><%= tag.name %></h1>
-
-	<p>Posts tagged "<%= tag.name %>":</p>
+	<h1>Posts tagged <%= tag.tag %></h1>
 
 	 <ol>
-		<% posts.each do |post| %>
-			<li>
-		  	<a href="/posts/<%=author.post.id %>">
-      	<%= tag.post.name %>
-			</li>
-		<% end %>
+ Posts tagged TK
   </ol>
 
 </body>

@@ -1,11 +1,12 @@
 <html>
 <head>
-	<title>Edit <%= tag.name %></title>
+	<title>Edit <%= tag.tag %></title>
 </head>
 <body>
+	<h1>Edit <%= tag.tag %></h1>
 	<form action="/tags/<%= tag.id %>" method="POST">
 		<input type="hidden" name="_method" value="PUT">
-		<input type="text" name="name" placeholder="Name" value="<%= tag.name %>" >
+		<input type="text" name="tag" placeholder="Tag" value="<%= tag.tag %>" >
 		<button>Save</button>
 	</form>
 

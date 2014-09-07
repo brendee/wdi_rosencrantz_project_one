@@ -26,9 +26,8 @@ tag_id integer
 
 CREATE TABLE tags (
 id serial primary key,
-name varchar(255),
-post_id integer,
-author_id integer
+tag varchar(255),
+post_id integer
 );
 
 -- CREATE TABLE snippets (

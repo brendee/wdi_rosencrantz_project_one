@@ -7,17 +7,17 @@
 	<ul>
 		<% tags.each do |tag| %>
 		<li>
-			<a href="/tags/<%= tag.id %>">
-				<%= tag.name %>
+			<a href="/tags/<%= tag.id %>/posts">
+				<%= tag.tag %>
 			</a>
 		</li>
 
-			<form action="/<%= tag.id %>/edit" method="GET">
+			<form action="/tags/<%= tag.id %>/edit" method="GET">
 				<input type="hidden">
 				<button>Edit</button>
 			</form>
 
-			<form action="/<%= tag.id %>" method="POST">
+			<form action="/tags/<%= tag.id %>" method="POST">
 				<input type="hidden" name="_method" value="DELETE">
 				<button>Delete</button>
 			</form>
