@@ -11,7 +11,6 @@
 		<li><a href="/feed">News Feed</a></li>
 		<li><a href="/authors/new">Add an Author</a></li>
 		<li><a href="/posts/new">Create New Post</a></li>
-		<li><a href="/tags/new">Add a Tag</a></li>
 		<li><a href="/authors">All Authors</a></li>
 		<li><a href="/posts">All Posts</a></li>
 		<li><a href="/tags">All Tags</a></li>
@@ -19,6 +18,12 @@
 	</ul>
 <!-- End Navigation -->
 
+<h4>Get updates:</h4> 
+	<form action="/subscribers" method="POST">
+	<input type="text" name="name" placeholder="Name" />
+	<input type="email" name="email" placeholder="Email Address" />
+			<button>Subscribe</button>
+		</form>
 
 	<!-- Optional Home Page Feeds
 		<ul>

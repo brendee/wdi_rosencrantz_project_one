@@ -6,7 +6,7 @@ require_relative './lib/connection'
 require_relative './lib/author'
 require_relative './lib/post'
 require_relative './lib/tag'
-require_relative './lib/image'
+require_relative './lib/subscriber'
 
 after do 
 	ActiveRecord::Base.connection.close
@@ -16,6 +16,20 @@ end
 
 # Index page with navigation
 get("/") do
+
+	# tagged_image = 0
+	# 3.times do 
+	# instagram = HTTParty.get("https://api.instagram.com/v1/tags/sloth/media/recent?client_id=4ad7cc36c172434588afd340aa74cd01")
+
+	# image_hash = {
+	# 	image_url: instagram["data"][tagged_image]["images"]["standard_resolution"]["url"]
+	# }
+
+	# 	Image.create(image_hash)
+
+	# 	tagged_image += 1
+	# end
+
 	erb(:index)
 end
 
@@ -32,8 +46,7 @@ end
 # Captures new author data into hash, sends user back to list of authors
 post("/authors") do
 	authors_hash = {
-		name: params["name"],
-		subscriber_id: params["subscriber_id"]
+		name: params["name"]
 	}
 
 	all_authors = Author.create(authors_hash)
@@ -59,8 +72,7 @@ end
 # Sends updated information into the author hash
 put("/authors/:id") do
 	authors_hash = {
-		name: params["name"],
-		subscriber_id: params["subscriber_id"]
+		name: params["name"]
 	}
 
 	author = Author.find_by({id: params[:id]})
@@ -104,7 +116,12 @@ post("/posts") do
 	all_posts = Post.create(posts_hash)
 	all_posts.save
 
-	erb(:"posts/index", { locals: { posts: Post.all(), tags: Tag.all() } })
+# Add SendGrid info here
+	subscribers = Subscriber.all()
+	title = posts_hash[:title]  
+	subscribe(subscribers, title)
+
+erb(:"posts/index", { locals: { posts: Post.all(), tags: Tag.all() } })
 end
 
 # Specific blog post page
@@ -213,4 +230,25 @@ delete ("/tags/:id") do
 	tag.destroy
 
 	redirect "/tags"
+end
+
+# Confirmation message for subscribers
+
+get ("/confirmation") do
+
+ erb(:"subscribers/confirm")
+end
+
+# Captures new subscriber data into hash, sends user back to homepage
+
+post("/subscribers") do
+	subscribers_hash = {
+		name: params["name"],
+		email: params["email"]
+	}
+
+	all_subscribers = Subscriber.create(subscribers_hash)
+	all_subscribers.save
+
+	redirect "/confirmation"
 end
