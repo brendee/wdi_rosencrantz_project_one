@@ -12,8 +12,17 @@
 			</p>
 			<p>Image URL: <input type="text" name="image_url" size="53" placeholder="Add an image">
 			</p>
-				<p>Tag(s): <input type="text" name="tag" size="53" placeholder="Add a tag">
+				<p>Tag(s): <input type="text" name="tag" placeholder="Add a tag">
 			</p>
+			<p>Tag: 
+				<select name="tag_id">
+					<option selected="selected">Select a tag</option>
+					<% tags.each do |tag| %>
+					<option value="<%= tag["id"] %>"><%= tag["tag"] %></option>
+					<% end %>
+				</select>
+				</p>
+
 			<p>Author: 
 				<select name="author_id">
 					<option selected="selected">Select an author</option>

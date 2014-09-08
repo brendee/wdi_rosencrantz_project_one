@@ -6,7 +6,11 @@
 	<h1>Posts tagged <%= tag.tag %></h1>
 
 	 <ol>
- Posts tagged TK
+		<% posts.each do |post| %>
+			<li>
+		  	<a href="/posts/<%= post.id %>"><%= post["title"] %>
+			</li>
+		<% end %>
   </ol>
 
 </body>

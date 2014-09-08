@@ -6,10 +6,9 @@
 <h1><%= post.title %></h1>
 <p><%= post.content %></p>
 <p><img src="<%= post.image_url %>"></p>
-<p><em>Created: <%= post.created_at %></em> | 
-	<em>Authored by: <a href="/authors/<%= post["author_id"]%>/posts">
+<p><em>Created: <%= post["created_at"] %></em> | <em>Authored by: <a href="/authors/<%= post["author_id"]%>/posts">
 		 <%= author["name"] %></a></em></p>
-
+<p>Tag: <a href="/tags/<%= tag.id %>/posts"><%= tag["tag"] %></a> </p>
 		 			<form action="/posts/<%= post.id %>/edit" method="GET">
 				<input type="hidden">
 				<button>Edit Post</button>

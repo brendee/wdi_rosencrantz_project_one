@@ -6,7 +6,7 @@ title varchar(255),
 content text,
 tag_id integer,
 author_id integer,
-created_at timestamp,
+created_at varchar(255),
 image_url text
 );
 
@@ -27,7 +27,6 @@ tag_id integer
 CREATE TABLE tags (
 id serial primary key,
 tag varchar(255),
-post_id integer
 );
 
 -- CREATE TABLE snippets (
