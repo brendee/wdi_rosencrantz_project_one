@@ -56,7 +56,7 @@ get("/authors/:id/edit") do
 	erb(:"authors/edit", { locals: { author: author, posts: Post.all() } })
 end
 
-# Sends updated information in the author hash
+# Sends updated information into the author hash
 put("/authors/:id") do
 	authors_hash = {
 		name: params["name"],
@@ -79,14 +79,17 @@ end
 
 # POSTS
 
+# Displays list of blog post titles
 get("/posts") do
 	erb(:"posts/index", { locals: { posts: Post.all() } })
 end
 
+# Create new blog post form
 get("/posts/new") do
 	erb(:"posts/new", { locals: { authors: Author.all(), tags: Tag.all() } })
 end
 
+# Captures new post data into hash, sends user back to list of posts
 post("/posts") do
 
 	posts_hash = {
@@ -104,27 +107,29 @@ post("/posts") do
 	erb(:"posts/index", { locals: { posts: Post.all(), tags: Tag.all() } })
 end
 
+# Specific blog post page
 get("/posts/:id") do
 	post = Post.find_by(id: params[:id])
 	author = Author.find_by({id: post.author_id})
 	tag = Tag.find_by({id: post.tag_id})
 
-	erb(:"posts/show", { locals: { post: post, tag: tag, author: author, authors: Author.all(), tags: Tag.all() } })
+	erb(:"posts/show", { locals: { post: post, tag: tag, author: author, authors: Author.all() } })
 end
 
 # Feed of all blog posts
 get("/feed") do
 
-	erb(:"posts/feed", { locals: { posts: Post.all(), authors: Author.all() } })
+	erb(:"posts/feed", { locals: { posts: Post.all(), authors: Author.all(), tags: Tag.all() } })
 	end
 
-
+# Edit blog post form
 get("/posts/:id/edit") do
 	post = Post.find_by({id: params[:id]})
 
-	erb(:"posts/edit", { locals: { post: post, authors: Author.all() } })
+	erb(:"posts/edit", { locals: { post: post, authors: Author.all(), tags: Tag.all() } })
 end
 
+# Sends updated information into the post hash
 put("/posts/:id") do
 	posts_hash = {
 		title: params["title"],
@@ -138,10 +143,12 @@ put("/posts/:id") do
 	post = Post.find_by({id: params[:id]})
 	post.update(posts_hash)
 	author = Author.find_by({id: post.author_id})
+	tag = Tag.find_by(id: params[:id])
 
-	erb(:"posts/show", { locals: { post: post, author: author, authors: Author.all() } })
+	erb(:"posts/index", { locals: { post: post, author: author, tag: tag, authors: Author.all(), posts: Post.all() } })
 end
 
+# Deletes blog post
 delete ("/posts/:id") do
 	post = Post.find_by({id: params[:id]})
 	post.destroy
@@ -156,7 +163,12 @@ get("/tags") do
 	erb(:"tags/index", { locals: { tags: Tag.all() } })
 end
 
-# Captures tag and sends user to list of tags
+# New tag form
+get("/tags/new") do
+	erb(:"tags/new", { locals: { tags: Tag.all() } })
+end
+
+# Captures tag information into tags hash and sends user to list of tags
 post("/tags") do
 	tags_hash = {
 		tag: params["tag"],
@@ -170,7 +182,8 @@ end
 
 # List of blog posts containing specific tag
 get("/tags/:id/posts") do
-	tag = Tag.find_by(id: params[:id])
+	# tag = Tag.find_by(id: params[:id])
+	tag = Tag.find_by({id: params[:id]})
 	post = Post.where({tag_id: params[:id]})
 
 	erb(:"tags/show", { locals: { tag: tag, posts: post } })

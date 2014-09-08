@@ -1,17 +1,15 @@
 <html>
 <head>
-	<title>Sloth Central: Post tagged <%= tag.tag %></title>
+	<title>Sloth Central: Posts tagged <%= tag.tag %></title>
 </head>
 <body>
 	<h1>Posts tagged <%= tag.tag %></h1>
 
-	 <ol>
+	<ul>
 		<% posts.each do |post| %>
-			<li>
-		  	<a href="/posts/<%= post.id %>"><%= post["title"] %>
-			</li>
+			<li><a href="/posts/<%= post.id %>"><%= post["title"] %></li>
 		<% end %>
-  </ol>
+  	</ul>
 
 </body>
 </html>

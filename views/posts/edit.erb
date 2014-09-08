@@ -11,7 +11,14 @@
 		<textarea name="content" cols="50" rows="3" value="<%= post.content %>"><%= post.content %></textarea>
 			</p>
 		<p>Image URL: <input type="text" name="image_url" size="55" value="<%= post.image_url %>"></p>
-		<p>Tags: <input type="text" name="tag" size="55" placeholder="Add new tag..."></p>
+		<p>Tag: 
+		<select name="tag_id">
+			<option selected="selected">Select a tag</option>
+			<% tags.each do |tag| %>
+			<option value="<%= tag["id"] %>"><%= tag["tag"] %></option>
+			<% end %>
+			</select>
+		</p>
 		<p>Author: <select name="author_id">
 			<option selected="selected">Select an author</option>
 			<% authors.each do |author| %>

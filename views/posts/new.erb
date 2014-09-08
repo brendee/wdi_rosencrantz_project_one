@@ -12,8 +12,8 @@
 			</p>
 			<p>Image URL: <input type="text" name="image_url" size="53" placeholder="Add an image">
 			</p>
-				<p>Tag(s): <input type="text" name="tag" placeholder="Add a tag">
-			</p>
+<!-- 				<p>Tag(s): <input type="text" name="tag" placeholder="Add a tag">
+			</p> -->
 			<p>Tag: 
 				<select name="tag_id">
 					<option selected="selected">Select a tag</option>
@@ -21,6 +21,9 @@
 					<option value="<%= tag["id"] %>"><%= tag["tag"] %></option>
 					<% end %>
 				</select>
+				</p>
+						<p>
+				Not listed? <a href="/tags/new">Add new tag</a>
 				</p>
 
 			<p>Author: 

@@ -10,8 +10,7 @@
 	 <ol>
 		<% posts.each do |post| %>
 			<li>
-		  	<a href="/posts/<%= post.id %>">
-      	<%= post["title"] %>
+		  	<a href="/posts/<%= post.id %>"><%= post["title"] %>
 			</li>
 		<% end %>
   </ol>

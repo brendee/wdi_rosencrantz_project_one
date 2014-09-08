@@ -11,9 +11,8 @@
 					<p><img src="<%= post.image_url %>"></p>
 
 					<!-- Add link to tag page when ready -->
-					<p><em>Created: <%= post["created_at"] %></em> | <em>Authored by: <a href="/authors/<%= post["author_id"]%>/posts"><%= Author.find_by({id: post.author_id}).name %></a></em></p>
+					<p><em>Created: <%= post["created_at"] %></em> | <em>Authored by: <a href="/authors/<%= post["author_id"]%>/posts"><%= Author.find_by({id: post.author_id}).name %></a></em> | <em><a href="/posts/<%= post.id %>">Permalink</a></em></p>
 				<!-- Why couldn't I set the author name to a variable in my server or reuse the code from the posts/show page? -->
-					<p><a href="/posts/<%= post.id %>">Permalink</a></p>
 		<% end %>
 	</ul>
 </body>

@@ -16,13 +16,13 @@ name varchar(255),
 subscriber_id integer
 );
 
-CREATE TABLE images (
-id serial primary key,
-name varchar(255),
-url text,
-post_id integer,
-tag_id integer
-);
+-- CREATE TABLE images (
+-- id serial primary key,
+-- name varchar(255),
+-- url text,
+-- post_id integer,
+-- tag_id integer
+-- );
 
 CREATE TABLE tags (
 id serial primary key,

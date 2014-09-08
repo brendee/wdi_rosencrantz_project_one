@@ -8,7 +8,7 @@
 <p><img src="<%= post.image_url %>"></p>
 <p><em>Created: <%= post["created_at"] %></em> | <em>Authored by: <a href="/authors/<%= post["author_id"]%>/posts">
 		 <%= author["name"] %></a></em></p>
-<p>Tag: <a href="/tags/<%= tag.id %>/posts"><%= tag["tag"] %></a> </p>
+<p>Tag: <a href="/tags/<%= post["tag_id"] %>/posts"><%= tag["tag"] %></a> </p>
 		 			<form action="/posts/<%= post.id %>/edit" method="GET">
 				<input type="hidden">
 				<button>Edit Post</button>
@@ -18,12 +18,12 @@
 				<input type="hidden" name="_method" value="DELETE">
 				<button>Delete Post</button>
 			</form>
-
+<!-- 
 	<h3>Add Tags</h3>
-	<form action="/tags" method="POST">
+	<form action="/tags/" method="POST">
 	<input type="text" name="tag" placeholder="Add a Tag" />
 	<button>Submit</button>
 	</form>
-
+ -->
 </body>
 </html>
