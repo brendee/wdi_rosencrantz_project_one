@@ -1,12 +1,19 @@
+<!DOCTYPE html>
 <html>
 <head>
+	<link rel ="stylesheet" type=text/css href="/styles.css">
+	<link href='http://fonts.googleapis.com/css?family=Chicle' rel='stylesheet' type='text/css'>
 	<title>Sloth Central</title>
 </head>
 <body>
+<div id="wrapper">
+	<div id="header">
 	<h1>Sloth Central</h1>
-	<h3>All sloths, all the time</h3>
+	<h3>All sloths, all the time...</h3>
+	</div>
 
 <!-- Begin Navigation -->
+<div id="navigation">
 	<ul>
 		<li><a href="/feed">News Feed</a></li>
 		<li><a href="/authors/new">Add an Author</a></li>
@@ -16,21 +23,48 @@
 		<li><a href="/tags">All Tags</a></li>
 
 	</ul>
+</div>	
 <!-- End Navigation -->
 
-<h4>Get updates:</h4> 
+	<div id="content">
+		<h2>Recent Posts</h2>
+		<ul>
+			<% posts.each do |post| %>
+				<li>
+					<a href="/posts/<%= post.id %>">
+						<%= post.title %>
+					</a>
+				</li>
+			<% end %>
+		</ul>
+		<p><a href="/feed">Full News Feed >></a></p>
+
+		<h2>Recent Tags</h2>
+		<ul>
+			<% tags.each do |tag| %>
+			<li>
+				<a href="/tags/<%= tag.id %>/posts">
+					<%= tag.tag %>
+				</a>
+			</li>
+			<% end %>
+		</ul>
+		<p><a href="/tags">All Tags >></a></p>
+
+	<h4>Get updates:</h4> 
 	<form action="/subscribers" method="POST">
 	<input type="text" name="name" placeholder="Name" />
 	<input type="email" name="email" placeholder="Email Address" />
-			<button>Subscribe</button>
-		</form>
+		<button>Subscribe</button>
+	</form>
 
-	<!-- Optional Home Page Feeds
-		<ul>
-		<li>Recent Microposts Feed TK</li>
-		<li>Recent Tags Feed TK</li>
-	</ul> 
-	-->
+	</div>
+
+	<div id="footer">
+	<p>&copy; Copyright 2014</p>
+	</div>
+
+</div>
 
 </body>
 </html>

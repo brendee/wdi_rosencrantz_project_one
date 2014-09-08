@@ -1,0 +1,165 @@
+body {
+	margin:0;
+	padding:0;
+	height:100%;
+}
+
+#wrapper {
+	min-height:100%;
+	position:relative;
+}
+
+#header {
+	padding:10px;
+	background:#5ee;
+	color: white;
+	text-shadow: black 0.1em 0.1em 0.2em;
+	background-image: url('./trees.jpg');
+
+}
+
+#header h1 {
+	font-family: 'Chicle', cursive;
+	font-size: 125px;
+	text-align: center;
+	margin-top: 0px;
+}
+
+#header h3 {
+	font-family: 'Chicle', cursive;
+	font-size: 45px;
+	text-align: center;
+	margin-top: -100px;
+}
+
+#navigation {
+	width:100%;
+	height:40px;
+	bottom:0;
+	left:0;
+	background: green;
+	margin-top: -20px;
+}
+
+#navigation ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 10px;
+}
+
+#navigation li {
+    float: left;
+}
+
+#navigation a {
+    display: block;
+    width: 200px;
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+#content {
+	padding:10px;
+	padding-bottom:80px;    Height of the footer element 
+}
+
+#footer {
+	width:100%;
+	height:40px;
+	position:absolute;
+	bottom:0;
+	left:0;
+	background: green;
+	text-align: center;
+}*
+/
+
+/*body {
+/*	background-image: url('./outer_space.jpg');
+	/*font-family: 'Titillium Web', sans-serif;
+	font-size: 16px;
+}
+
+.home {
+	margin-top: 75px;
+	background-color:rgba(0,0,0,0.75);
+	height: 250px;
+	padding: 10px;
+	font-family: 'Titillium Web', sans-serif;
+	font-size: 24px;
+	text-transform: uppercase;
+
+}
+
+.wrapper {
+
+	background-color:rgba(0,0,0,0.75);
+	height: 300px;
+	padding-top: 10px;
+	padding-left: 10px;
+}
+
+.navigation {
+	background-color:rgba(0,0,0,0.5);
+	margin-bottom: 50px;
+}
+
+.navigation li {
+	display: inline;
+	margin-left: 100px;
+	font-family: 'Titillium Web', sans-serif;
+	font-size: 16px;
+	text-transform: uppercase;
+}
+
+h1 {
+	color: black;
+	font-family: 'Chicle', cursive;
+	font-size: 125px;
+	text-align: center;
+}
+
+h3 {
+	color: black;
+	font-family: 'Chicle', cursive;
+	font-size: 45px;
+	text-align: center;
+	margin-top: -100px;
+}
+
+a {
+	text-decoration: underline;
+	color: black;
+}
+
+a:hover {
+	text-decoration: underline;
+	color: #6495ED;
+}
+
+li {
+	color: black;
+	list-style-type: square;
+}*/
+
+form button {
+	font-family: 'Abel', sans-serif;
+	font-size: 15px;
+	border-radius: 10px;	
+	color: white;
+	background-color: black;
+}
+
+input {
+	font-family: 'Abel', sans-serif;
+	border-radius: 10px;
+	font-size: 15px;
+}
+
+option {
+	font-family: 'Abel', sans-serif;
+	border-radius: 10px;
+	font-size: 15px;
+}

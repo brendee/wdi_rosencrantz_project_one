@@ -30,7 +30,7 @@ get("/") do
 	# 	tagged_image += 1
 	# end
 
-	erb(:index)
+	erb(:index, { locals: { posts: Post.all(), tags: Tag.all() } })
 end
 
 # List of all authors linked to author profile page
