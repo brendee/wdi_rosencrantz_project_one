@@ -1,9 +1,31 @@
 <html>
 <head>
+	<link rel ="stylesheet" type=text/css href="/styles.css">
+	<link href='http://fonts.googleapis.com/css?family=Chicle|Dosis' rel='stylesheet' type='text/css'>
 	<title> <%= author["name"] %></title>
 </head>
 <body>
-	<h1> <%= author["name"] %></h1>
+			<div id="header">
+	<h1>Sloth Central</h1>
+	<h3>All sloths, all the time...</h3>
+	</div>
+
+<!-- Begin Navigation -->
+<div id="navigation">
+	<ul>
+		<li><a href="/">Home</a></li>
+		<li><a href="/feed">News Feed</a></li>
+		<li><a href="/authors/new">Add an Author</a></li>
+		<li><a href="/posts/new">Create New Post</a></li>
+		<li><a href="/authors">All Authors</a></li>
+		<li><a href="/posts">All Posts</a></li>
+		<li><a href="/tags">All Tags</a></li>
+
+	</ul>
+</div>	
+<!-- Begin Well -->
+<div class="well">
+	<h2> <%= author["name"] %></h2>
 
 	<p>Posts:</p>
 
@@ -14,8 +36,10 @@
 			</li>
 		<% end %>
   	</ul>
+</div>
 
-
-<!-- Add subscribe link/icon -->
+<div id="footer">
+	<p>&copy; Copyright 2014</p>
+	</div>
 </body>
 </html>

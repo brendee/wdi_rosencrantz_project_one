@@ -1,9 +1,33 @@
 <html>
 <head>
+	<link rel ="stylesheet" type=text/css href="/styles.css">
+	<link href='http://fonts.googleapis.com/css?family=Chicle|Dosis' rel='stylesheet' type='text/css'>
 	<title>Sloth Central News Feed</title>
 </head>
 <body>
-	<h1>News Feed</h1>
+	<div id="header">
+	<h1>Sloth Central</h1>
+	<h3>All sloths, all the time...</h3>
+	</div>
+
+<!-- Begin Navigation -->
+<div id="navigation">
+	<ul>
+		<li><a href="/">Home</a></li>
+		<li><a href="/feed">News Feed</a></li>
+		<li><a href="/authors/new">Add an Author</a></li>
+		<li><a href="/posts/new">Create New Post</a></li>
+		<li><a href="/authors">All Authors</a></li>
+		<li><a href="/posts">All Posts</a></li>
+		<li><a href="/tags">All Tags</a></li>
+
+	</ul>
+</div>	
+
+<!-- End Navigation -->
+<!-- Begin Well -->
+<div class="well">
+	<h2>News Feed</h2>
 	<ul>
 		<% posts.each do |post| %>
 					<h3><a href="/posts/<%= post.id %>"><%= post.title %></a></h3>
@@ -12,8 +36,11 @@
 
 					<!-- Add link to tag page when ready -->
 					<p><em>Created: <%= post["created_at"] %></em> | <em>Authored by: <a href="/authors/<%= post["author_id"]%>/posts"><%= post.get_author_name %></a></em> | <em><a href="/posts/<%= post.id %>">Permalink</a></em></p>
-				<!-- Why couldn't I set the author name to a variable in my server or reuse the code from the posts/show page? -->
 		<% end %>
 	</ul>
+</div>
+<div id="footer">
+	<p>&copy; Copyright 2014</p>
+	</div>
 </body>
 </html>

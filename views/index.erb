@@ -16,6 +16,7 @@
 <!-- Begin Navigation -->
 <div id="navigation">
 	<ul>
+		<li><a href="/">Home</a></li>
 		<li><a href="/feed">News Feed</a></li>
 		<li><a href="/authors/new">Add an Author</a></li>
 		<li><a href="/posts/new">Create New Post</a></li>
@@ -26,7 +27,13 @@
 	</ul>
 </div>	
 <!-- End Navigation -->
+<div class="well">
+<!-- Instagram Feed TK -->
 
+<p>Instagram Feed TK</p>
+
+
+<!-- Begin Columns -->
 <div id="container3">
 	<div id="container2">
 		<div id="container1">
@@ -43,13 +50,15 @@
 			</li>
 		<% end %>
 		</ul>
-		<p><a href="/feed">Full News Feed >></a></p>
-	</div>
+		<p><a href="/tags">All Tags >></a></p>
+</div>
+
 	<!-- Column one end -->		
 	
 	<!-- Column two start -->
 	<div id="col2">
-	<h2>Recent Tags</h2>
+
+			<h2>Recent Tags</h2>
 	<ul>
 		<% tags.each do |tag| %>
 		<li>
@@ -58,13 +67,16 @@
 		</li>
 		<% end %>
 		</ul>
-		<p><a href="/tags">All Tags >></a></p>
-	</div>
+	
+		<p><a href="/feed">Full News Feed >></a></p>
+	
+</div>
 	<!-- Column two end -->
 	
 	<!-- Column three start -->		
 	<div id="col3">
-		<h2>Get updates:</h2> 
+		<h2>Get Updates</h2> 
+		<br>
 		<form action="/subscribers" method="POST">
 		<input type="text" name="name" placeholder="Name" /><br>
 		<input type="email" name="email" placeholder="Email Address" /><br>
@@ -74,6 +86,7 @@
 	<!-- Column three end -->	
 		</div>
 	</div>
+</div>
 </div>
 
 	<div id="footer">

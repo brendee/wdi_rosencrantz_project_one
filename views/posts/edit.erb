@@ -1,9 +1,33 @@
 <html>
 <head>
+	<link rel ="stylesheet" type=text/css href="/styles.css">
+	<link href='http://fonts.googleapis.com/css?family=Chicle|Dosis' rel='stylesheet' type='text/css'>
 	<title>Edit <%= post.title %></title>
 </head>
 <body>
-	<h1>Edit "<%= post.title %>"</h1>
+
+		<div id="header">
+	<h1>Sloth Central</h1>
+	<h3>All sloths, all the time...</h3>
+	</div>
+
+<!-- Begin Navigation -->
+<div id="navigation">
+	<ul>
+		<li><a href="/">Home</a></li>
+		<li><a href="/feed">News Feed</a></li>
+		<li><a href="/authors/new">Add an Author</a></li>
+		<li><a href="/posts/new">Create New Post</a></li>
+		<li><a href="/authors">All Authors</a></li>
+		<li><a href="/posts">All Posts</a></li>
+		<li><a href="/tags">All Tags</a></li>
+
+	</ul>
+</div>	
+<!-- End Navigation -->
+<!-- Begin Well -->
+<div class="well">
+	<h2>Edit "<%= post.title %>"</h2>
 	<form action="/posts/<%= post.id %>" method="POST">
 		<input type="hidden" name="_method" value="PUT">
 		<p>Title: <input type="text" name="title" value="<%= post.title %>"></p>
@@ -13,14 +37,12 @@
 		<p>Image URL: <input type="text" name="image_url" size="55" value="<%= post.image_url %>"></p>
 		<p>Tag: 
 		<select name="tag_id">
-			<option selected="selected">Select a tag</option>
 			<% tags.each do |tag| %>
 			<option value="<%= tag["id"] %>"><%= tag["tag"] %></option>
 			<% end %>
 			</select>
 		</p>
 		<p>Author: <select name="author_id">
-			<option selected="selected">Select an author</option>
 			<% authors.each do |author| %>
 			<option value="<%= author["id"] %>"><%= author["name"] %></option>
 			<% end %>
@@ -32,5 +54,8 @@
 		<input type="hidden" name="_method" value="DELETE">
 		<button>Delete</button>
 	</form>
+	<div id="footer">
+	<p>&copy; Copyright 2014</p>
+	</div>
 </body>
 </html>

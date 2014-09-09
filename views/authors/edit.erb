@@ -1,8 +1,33 @@
 <html>
 <head>
+	<link rel ="stylesheet" type=text/css href="/styles.css">
+	<link href='http://fonts.googleapis.com/css?family=Chicle|Dosis' rel='stylesheet' type='text/css'>
 	<title>Edit <%= author.name%></title>
 </head>
 <body>
+		<div id="header">
+	<h1>Sloth Central</h1>
+	<h3>All sloths, all the time...</h3>
+	</div>
+
+<!-- Begin Navigation -->
+<div id="navigation">
+	<ul>
+		<li><a href="/">Home</a></li>
+		<li><a href="/feed">News Feed</a></li>
+		<li><a href="/authors/new">Add an Author</a></li>
+		<li><a href="/posts/new">Create New Post</a></li>
+		<li><a href="/authors">All Authors</a></li>
+		<li><a href="/posts">All Posts</a></li>
+		<li><a href="/tags">All Tags</a></li>
+
+	</ul>
+</div>	
+
+<!-- End Navigation -->
+<!-- Begin Well -->
+<div class="well">
+<h2>Edit <%= author.name%></h2>
 	<form action="/authors/<%= author.id %>" method="POST">
 		<input type="hidden" name="_method" value="PUT">
 		<input type="text" name="name" placeholder="Name" value="<%= author.name %>" />
@@ -13,6 +38,9 @@
 		<input type="hidden" name="_method" value="DELETE">
 		<button>Delete</button>
 	</form>
-
+</div>
+<div id="footer">
+	<p>&copy; Copyright 2014</p>
+	</div>
 </body>
 </html>
