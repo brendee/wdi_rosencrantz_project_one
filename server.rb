@@ -136,7 +136,9 @@ end
 # Feed of all blog posts
 get("/feed") do
 
-	erb(:"posts/feed", { locals: { posts: Post.all(), authors: Author.all(), tags: Tag.all() } })
+	# author_name = Author.find_by({id: post.author_id}).name
+
+	erb(:"posts/feed", { locals: { posts: Post.all() } })
 	end
 
 # Edit blog post form

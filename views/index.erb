@@ -2,11 +2,12 @@
 <html>
 <head>
 	<link rel ="stylesheet" type=text/css href="/styles.css">
-	<link href='http://fonts.googleapis.com/css?family=Chicle' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Chicle|Dosis' rel='stylesheet' type='text/css'>
 	<title>Sloth Central</title>
 </head>
+
 <body>
-<div id="wrapper">
+
 	<div id="header">
 	<h1>Sloth Central</h1>
 	<h3>All sloths, all the time...</h3>
@@ -26,45 +27,58 @@
 </div>	
 <!-- End Navigation -->
 
-	<div id="content">
+<div id="container3">
+	<div id="container2">
+		<div id="container1">
+			
+	<!-- Column one start -->
+	<div id="col1">
 		<h2>Recent Posts</h2>
 		<ul>
 			<% posts.each do |post| %>
-				<li>
-					<a href="/posts/<%= post.id %>">
-						<%= post.title %>
-					</a>
-				</li>
-			<% end %>
+			<li>
+			<a href="/posts/<%= post.id %>">
+			<%= post.title %>
+			</a>
+			</li>
+		<% end %>
 		</ul>
 		<p><a href="/feed">Full News Feed >></a></p>
-
-		<h2>Recent Tags</h2>
-		<ul>
-			<% tags.each do |tag| %>
-			<li>
-				<a href="/tags/<%= tag.id %>/posts">
-					<%= tag.tag %>
-				</a>
-			</li>
-			<% end %>
+	</div>
+	<!-- Column one end -->		
+	
+	<!-- Column two start -->
+	<div id="col2">
+	<h2>Recent Tags</h2>
+	<ul>
+		<% tags.each do |tag| %>
+		<li>
+		<a href="/tags/<%= tag.id %>/posts">
+		<%= tag.tag %></a>
+		</li>
+		<% end %>
 		</ul>
 		<p><a href="/tags">All Tags >></a></p>
-
-	<h4>Get updates:</h4> 
-	<form action="/subscribers" method="POST">
-	<input type="text" name="name" placeholder="Name" />
-	<input type="email" name="email" placeholder="Email Address" />
-		<button>Subscribe</button>
-	</form>
-
 	</div>
+	<!-- Column two end -->
+	
+	<!-- Column three start -->		
+	<div id="col3">
+		<h2>Get updates:</h2> 
+		<form action="/subscribers" method="POST">
+		<input type="text" name="name" placeholder="Name" /><br>
+		<input type="email" name="email" placeholder="Email Address" /><br>
+			<button>Subscribe</button>
+		</form>
+	</div>
+	<!-- Column three end -->	
+		</div>
+	</div>
+</div>
 
 	<div id="footer">
 	<p>&copy; Copyright 2014</p>
 	</div>
-
-</div>
 
 </body>
 </html>
