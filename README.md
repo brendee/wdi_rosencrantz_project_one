@@ -1,7 +1,9 @@
 Project One: Sloth Central Microblog
 ===========================
 
-<strong>Description</strong>: A team blog focusing on sloths. The content is primarily sloth news, facts and images. Contributors can post anything that is sloth-related or adjacent. Users can:
+<strong>Description</strong>: A team blog focusing on sloths. The content is primarily sloth news, facts and images. Contributors can post anything that is sloth-related or adjacent. 
+
+Users can:
 
 - Add and edit posts
 - Add and edit tags
