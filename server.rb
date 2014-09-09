@@ -1,3 +1,6 @@
+# require 'rubygems'
+# require 'bundler/setup'
+
 require 'pry'
 require 'sinatra'
 require 'sinatra/reloader'
@@ -7,6 +10,7 @@ require_relative './lib/author'
 require_relative './lib/post'
 require_relative './lib/tag'
 require_relative './lib/subscriber'
+require_relative './lib/image'
 
 after do 
 	ActiveRecord::Base.connection.close

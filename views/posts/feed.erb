@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
 	<link rel ="stylesheet" type=text/css href="/styles.css">
@@ -35,7 +36,7 @@
 					<p><img src="<%= post.image_url %>"></p>
 
 					<!-- Add link to tag page when ready -->
-					<p><em>Created: <%= post["created_at"] %></em> | <em>Authored by: <a href="/authors/<%= post["author_id"]%>/posts"><%= post.get_author_name %></a></em> | <em><a href="/posts/<%= post.id %>">Permalink</a></em></p>
+					<p><em>Created: <%= post["created_at"] %></em> &nbsp; | &nbsp; <em>Authored by: <a href="/authors/<%= post["author_id"]%>/posts"><%= post.get_author_name %></a></em> &nbsp;|&nbsp; <em><a href="/posts/<%= post.id %>">Permalink</a></em></p>
 		<% end %>
 	</ul>
 </div>

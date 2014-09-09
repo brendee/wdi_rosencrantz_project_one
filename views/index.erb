@@ -50,7 +50,7 @@
 			</li>
 		<% end %>
 		</ul>
-		<p><a href="/tags">All Tags >></a></p>
+		<p><a href="/feed">Complete News Feed >></a></p>
 </div>
 
 	<!-- Column one end -->		
@@ -58,7 +58,7 @@
 	<!-- Column two start -->
 	<div id="col2">
 
-			<h2>Recent Tags</h2>
+		<h2>Recent Tags</h2>
 	<ul>
 		<% tags.each do |tag| %>
 		<li>
@@ -67,15 +67,13 @@
 		</li>
 		<% end %>
 		</ul>
-	
-		<p><a href="/feed">Full News Feed >></a></p>
-	
-</div>
+		<p><a href="/tags">All Tags >></a></p>
+	</div>
 	<!-- Column two end -->
 	
 	<!-- Column three start -->		
 	<div id="col3">
-		<h2>Get Updates</h2> 
+		<h2>Get Updates</h2>
 		<br>
 		<form action="/subscribers" method="POST">
 		<input type="text" name="name" placeholder="Name" /><br>

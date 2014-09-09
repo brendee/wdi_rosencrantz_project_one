@@ -33,7 +33,7 @@ body {
 	height:40px;
 	bottom:0;
 	left:0;
-	background: green;
+	background: #336633;
 }
 
 #navigation ul {
@@ -96,7 +96,7 @@ body {
 	position:relative;
 	right:33.333%;
 	background: white; 
-	border-right: dotted black 1px; 
+/*	border-right: dotted black 1px; */
 	font-family: 'Dosis', sans-serif;
 }
 
@@ -106,7 +106,7 @@ body {
 	position:relative;
 	right:33.33%;
 	background: white; 
-	border-right: dotted black 1px;
+/*	border-right: dotted black 1px;*/
 	font-family: 'Dosis', sans-serif;
 }
 
@@ -169,7 +169,7 @@ a {
 
 a:hover {
 	text-decoration: underline;
-	color: green;
+	color: #336633;
 }
 
 li {
@@ -177,29 +177,37 @@ li {
 	list-style-type: square;
 }
 
+img {
+	width: 500px;
+	height: auto;
+}
 
 form button {
 	font-family: 'Dosis', sans-serif;
 	font-size: 15px;
-	border-radius: 10px;	
+/*	border-radius: 10px;	*/
 	color: white;
 	background-color: black;
 }
 
 input {
 	font-family: 'Dosis', sans-serif;
-	border-radius: 10px;
+/*	border-radius: 10px;*/
 	font-size: 15px;
 }
 
 option {
 	font-family: 'Dosis', sans-serif;
-	border-radius: 10px;
+/*	border-radius: 10px;*/
 	font-size: 15px;
 }
 
 textarea {
 	font-family: 'Dosis', sans-serif;
-	border-radius: 10px;
+/*	border-radius: 10px;*/
 	font-size: 15px;
 }
+
+/*.form {
+display: inline;
+}*/
