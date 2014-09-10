@@ -9,7 +9,7 @@ def subscribe (subscribers, title)
   response = HTTParty.post "https://sendgrid.com/api/mail.send.json", 
     :body => {
     "api_user" => "bdargan",
-    "api_key" => "bd101973",
+    "api_key" => "*******",
     "to" => "#{subscriber.email}",
     "toname"=> "#{subscriber.name}",
     "from" => "brenda@brendadargan.com",
